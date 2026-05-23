@@ -18,31 +18,59 @@ const StyledHeroSection = styled.section`
   }
 
   h1 {
-    margin: 0 0 30px 4px;
+    margin: 0 0 20px 4px;
     color: var(--green);
     font-family: var(--font-mono);
     font-size: clamp(var(--fz-sm), 5vw, var(--fz-md));
     font-weight: 400;
+  }
 
-    @media (max-width: 480px) {
-      margin: 0 0 20px 2px;
-    }
+  h2,
+  h3 {
+    margin: 0;
   }
 
   h3 {
-    margin-top: 5px;
+    margin-top: 10px;
     color: var(--slate);
-    line-height: 0.9;
+    line-height: 1;
   }
 
   p {
     margin: 20px 0 0;
-    max-width: 540px;
+    max-width: 600px;
   }
 
-  .email-link {
-    ${({ theme }) => theme.mixins.bigButton};
+  .hero-desc {
+    color: var(--light-slate);
+    font-size: var(--fz-lg);
+    line-height: 1.6;
+  }
+
+  .highlight {
+    color: var(--green);
+    font-weight: 600;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 20px;
     margin-top: 50px;
+    flex-wrap: wrap;
+  }
+
+  .primary-btn {
+    ${({ theme }) => theme.mixins.bigButton};
+  }
+
+  .secondary-btn {
+    ${({ theme }) => theme.mixins.bigButton};
+    background: transparent;
+
+    &:hover,
+    &:focus {
+      background-color: rgba(100, 255, 218, 0.1);
+    }
   }
 `;
 
@@ -56,33 +84,44 @@ const Hero = () => {
     }
 
     const timeout = setTimeout(() => setIsMounted(true), navDelay);
+
     return () => clearTimeout(timeout);
-  }, []);
+  }, [prefersReducedMotion]);
 
   const one = <h1>Hi, my name is</h1>;
-  const two = <h2 className="big-heading">Brittany Chiang.</h2>;
-  const three = <h3 className="big-heading">I build things for the web.</h3>;
+
+  const two = <h2 className="big-heading">Prateek Singh Negi.</h2>;
+
+  const three = <h3 className="big-heading">Full Stack Developer</h3>;
+
   const four = (
-    <>
+    <div className="hero-desc">
       <p>
-        I’m a software engineer specializing in building (and occasionally designing) exceptional
-        digital experiences. Currently, I’m focused on building accessible, human-centered products
-        at{' '}
-        <a href="https://upstatement.com/" target="_blank" rel="noreferrer">
-          Upstatement
-        </a>
-        .
+        I'm a full-stack developer focused on building scalable, high-performance, and user-centric
+        digital products using modern technologies across both frontend and backend ecosystems.
       </p>
-    </>
+
+      <p>
+        I work with{" "}
+        <span className="highlight">
+          React, Next.js, Node.js, NestJS, Express, Prisma, PostgreSQL, MongoDB, and other modern
+          web technologies
+        </span>{" "}
+        to create efficient and impactful solutions.
+      </p>
+    </div>
   );
+
   const five = (
-    <a
-      className="email-link"
-      href="https://www.newline.co/courses/build-a-spotify-connected-app"
-      target="_blank"
-      rel="noreferrer">
-      Check out my course!
-    </a>
+    <div className="cta-buttons">
+      <a className="primary-btn" href="#projects">
+        View My Work
+      </a>
+
+      <a className="secondary-btn" href="mailto:yourmail@gmail.com">
+        Let's Connect
+      </a>
+    </div>
   );
 
   const items = [one, two, three, four, five];

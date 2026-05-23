@@ -1,15 +1,15 @@
 ---
 date: '1'
-title: 'Halcyon Theme'
-cover: './halcyon.png'
-github: 'https://github.com/bchiang7/halcyon-site'
-external: 'https://halcyon-theme.netlify.com/'
+title: 'Airbnb Clone'
+cover: './airbnb.png'
+github: 'https://github.com/Prateeknegi2501/Airbnb-clone'
+external: 'https://airbnb-clone-ma5f.onrender.com/listings'
 tech:
   - VS Code
-  - Sublime Text
-  - Atom
-  - iTerm2
-  - Hyper
+  - NodeJs
+  - EJS
+  - MONGO DB
+  - Passport.js
 ---
 
-A minimal, dark blue theme for VS Code, Sublime Text, Atom, iTerm, and more. Available on [Visual Studio Marketplace](https://marketplace.visualstudio.com/items?itemName=brittanychiang.halcyon-vscode), [Package Control](https://packagecontrol.io/packages/Halcyon%20Theme), [Atom Package Manager](https://atom.io/themes/halcyon-syntax), and [npm](https://www.npmjs.com/package/hyper-halcyon-theme).
+A full-stack Airbnb Clone web application where users authentication and authorization using Passport.js, detailed listing pages, image uploads, and a review & rating system for user feedback.This project focuses on real-world CRUD operations, secure authentication, and responsive UI functionality.

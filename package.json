@@ -2,7 +2,7 @@
   "name": "v4",
   "description": "Personal Website V4",
   "version": "1.0.0",
-  "author": "Brittany Chiang <brittany.chiang@gmail.com>",
+  "author": "Brittany Chiang <negiprateek786@gmail.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/bchiang7/v4"
@@ -10,13 +10,18 @@
   "keywords": [
     "gatsby"
   ],
+  "engines": {
+    "node": ">=14 <19"
+  },
   "license": "MIT",
   "browserslist": "> 0.25%, not dead",
   "scripts": {
+    "predevelop": "node scripts/check-node.js",
+    "prebuild": "node scripts/check-node.js",
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "prepare": "husky install",

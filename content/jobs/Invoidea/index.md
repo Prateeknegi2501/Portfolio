@@ -1,9 +1,9 @@
 ---
 date: '2018-05-14'
-title: 'Lead Engineer'
-company: 'Upstatement'
-location: 'Boston, MA'
-range: 'May 2018 - Present'
+title: 'Mern Stack Developer'
+company: 'Invoidea Technologies'
+location: 'Noida sector 63, UP'
+range: 'January 2026 - Present'
 url: 'https://www.upstatement.com/'
 ---
 

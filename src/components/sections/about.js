@@ -18,6 +18,7 @@ const StyledAboutSection = styled.section`
     }
   }
 `;
+
 const StyledText = styled.div`
   ul.skills-list {
     display: grid;
@@ -28,12 +29,17 @@ const StyledText = styled.div`
     overflow: hidden;
     list-style: none;
 
+    @media (max-width: 480px) {
+      grid-template-columns: repeat(2, minmax(120px, 1fr));
+    }
+
     li {
       position: relative;
       margin-bottom: 10px;
       padding-left: 20px;
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
+      color: var(--light-slate);
 
       &:before {
         content: '▹';
@@ -45,7 +51,17 @@ const StyledText = styled.div`
       }
     }
   }
+
+  p {
+    color: var(--light-slate);
+  }
+
+  .highlight {
+    color: var(--green);
+    font-weight: 600;
+  }
 `;
+
 const StyledPic = styled.div`
   position: relative;
   max-width: 300px;
@@ -123,9 +139,22 @@ const About = () => {
     }
 
     sr.reveal(revealContainer.current, srConfig());
-  }, []);
+  }, [prefersReducedMotion]);
 
-  const skills = ['JavaScript (ES6+)', 'TypeScript', 'React', 'Eleventy', 'Node.js', 'WordPress'];
+  const skills = [
+    'JavaScript (ES6+)',
+    'TypeScript',
+    'React.js',
+    'Next.js',
+    'Node.js',
+    'Express.js',
+    'NestJS',
+    'Prisma',
+    'PostgreSQL',
+    'MongoDB',
+    'MySQL',
+    'REST APIs',
+  ];
 
   return (
     <StyledAboutSection id="about" ref={revealContainer}>
@@ -135,30 +164,30 @@ const About = () => {
         <StyledText>
           <div>
             <p>
-              Hello! My name is Brittany and I enjoy creating things that live on the internet. My
-              interest in web development started back in 2012 when I decided to try editing custom
-              Tumblr themes — turns out hacking together a custom reblog button taught me a lot
-              about HTML &amp; CSS!
+              Hello! I'm <span className="highlight">Prateek Singh Negi</span>, a full-stack
+              developer passionate about building scalable, modern, and high-performance web
+              applications.
             </p>
 
             <p>
-              Fast-forward to today, and I’ve had the privilege of working at{' '}
-              <a href="https://us.mullenlowe.com/">an advertising agency</a>,{' '}
-              <a href="https://starry.com/">a start-up</a>,{' '}
-              <a href="https://www.apple.com/">a huge corporation</a>, and{' '}
-              <a href="https://scout.camd.northeastern.edu/">a student-led design studio</a>. My
-              main focus these days is building accessible, inclusive products and digital
-              experiences at <a href="https://upstatement.com/">Upstatement</a> for a variety of
-              clients.
+              I specialize in creating clean and efficient frontend experiences using{' '}
+              <span className="highlight">React.js</span> and{' '}
+              <span className="highlight">Next.js</span>, while also building robust backend systems
+              with{' '}
+              <span className="highlight">
+                Node.js, Express.js, NestJS, Prisma, PostgreSQL, and MongoDB
+              </span>
+              .
             </p>
 
             <p>
-              I also recently{' '}
-              <a href="https://www.newline.co/courses/build-a-spotify-connected-app">
-                launched a course
-              </a>{' '}
-              that covers everything you need to build a web app with the Spotify API using Node
-              &amp; React.
+              Currently, I’m focused on developing reusable component-based systems, HRMS platforms,
+              and scalable business applications with optimized performance and clean architecture.
+            </p>
+
+            <p>
+              I enjoy solving real-world problems, designing scalable APIs, and building products
+              that provide smooth and user-friendly experiences across devices.
             </p>
 
             <p>Here are a few technologies I’ve been working with recently:</p>
@@ -173,11 +202,11 @@ const About = () => {
           <div className="wrapper">
             <StaticImage
               className="img"
-              src="../../images/me.jpg"
+              src="../../images/prateekImage.png"
               width={500}
               quality={95}
               formats={['AUTO', 'WEBP', 'AVIF']}
-              alt="Headshot"
+              alt="Prateek Singh Negi"
             />
           </div>
         </StyledPic>

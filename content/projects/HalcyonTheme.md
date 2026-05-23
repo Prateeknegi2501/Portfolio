@@ -1,14 +1,14 @@
 ---
 date: '2017-12-27'
-title: 'Halcyon Theme'
-github: 'https://github.com/bchiang7/halcyon-site'
-external: 'https://halcyon-theme.netlify.com/'
+title: 'Airbnb Clone'
+github: 'https://github.com/Prateeknegi2501/Airbnb-clone'
+external: 'https://airbnb-clone-ma5f.onrender.com/listings'
 tech:
   - VS Code
-  - Sublime Text
-  - Atom
-  - iTerm2
-  - Hyper
+  - NodeJs
+  - EJS
+  - MONGO DB
+  - Passport.js
 showInProjects: false
 ---
 

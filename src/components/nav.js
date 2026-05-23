@@ -5,7 +5,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styled, { css } from 'styled-components';
 import { navLinks } from '@config';
 import { loaderDelay } from '@utils';
-import { useScrollDirection, usePrefersReducedMotion } from '@hooks';
+import { usePrefersReducedMotion } from '@hooks';
 import { Menu } from '@components';
 import { IconLogo, IconHex } from '@components/icons';
 
@@ -32,24 +32,9 @@ const StyledHeader = styled.header`
   }
 
   @media (prefers-reduced-motion: no-preference) {
-    ${props =>
-    props.scrollDirection === 'up' &&
-      !props.scrolledToTop &&
-      css`
-        height: var(--nav-scroll-height);
-        transform: translateY(0px);
-        background-color: rgba(10, 25, 47, 0.85);
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
-      `};
-
-    ${props =>
-    props.scrollDirection === 'down' &&
-      !props.scrolledToTop &&
-      css`
-        height: var(--nav-scroll-height);
-        transform: translateY(calc(var(--nav-scroll-height) * -1));
-        box-shadow: 0 10px 30px -10px var(--navy-shadow);
-      `};
+    ${css`
+      box-shadow: 0 10px 30px -10px var(--navy-shadow);
+    `};
   }
 `;
 
@@ -97,12 +82,30 @@ const StyledNav = styled.nav`
         }
       }
 
+      .logo-name {
+        position: absolute;
+        left: calc(100% + 12px);
+        top: 50%;
+        transform: translateY(-50%) translateX(-6px);
+        opacity: 0;
+        white-space: nowrap;
+        color: var(--green);
+        font-size: var(--fz-xs);
+        font-family: var(--font-mono);
+        pointer-events: none;
+        transition: var(--transition);
+      }
+
       &:hover,
       &:focus {
         outline: 0;
         transform: translate(-4px, -4px);
         .hex-container {
           transform: translate(4px, 3px);
+        }
+        .logo-name {
+          opacity: 1;
+          transform: translateY(-50%) translateX(0);
         }
       }
     }
@@ -152,13 +155,7 @@ const StyledLinks = styled.div`
 
 const Nav = ({ isHome }) => {
   const [isMounted, setIsMounted] = useState(!isHome);
-  const scrollDirection = useScrollDirection('down');
-  const [scrolledToTop, setScrolledToTop] = useState(true);
   const prefersReducedMotion = usePrefersReducedMotion();
-
-  const handleScroll = () => {
-    setScrolledToTop(window.pageYOffset < 50);
-  };
 
   useEffect(() => {
     if (prefersReducedMotion) {
@@ -169,11 +166,8 @@ const Nav = ({ isHome }) => {
       setIsMounted(true);
     }, 100);
 
-    window.addEventListener('scroll', handleScroll);
-
     return () => {
       clearTimeout(timeout);
-      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -191,6 +185,7 @@ const Nav = ({ isHome }) => {
           <div className="logo-container">
             <IconLogo />
           </div>
+          <span className="logo-name">Prateek Singh Negi</span>
         </a>
       ) : (
         <Link to="/" aria-label="home">
@@ -200,6 +195,7 @@ const Nav = ({ isHome }) => {
           <div className="logo-container">
             <IconLogo />
           </div>
+          <span className="logo-name">Prateek Singh Negi</span>
         </Link>
       )}
     </div>
@@ -212,7 +208,7 @@ const Nav = ({ isHome }) => {
   );
 
   return (
-    <StyledHeader scrollDirection={scrollDirection} scrolledToTop={scrolledToTop}>
+    <StyledHeader>
       <StyledNav>
         {prefersReducedMotion ? (
           <>
