@@ -1,15 +1,13 @@
 ---
 date: '2'
-title: 'Spotify Profile'
+title: 'CMX HRMS'
 cover: './demo.png'
-github: 'https://github.com/bchiang7/spotify-profile'
-external: 'https://spotify-profile.herokuapp.com/'
+external: 'https://limegreen-termite-715775.hostingersite.com/'
 tech:
-  - React
-  - Styled Components
-  - Express
-  - Spotify API
-  - Heroku
+  - Next.Js
+  - NestJs
+  - Nodemailer
+  - PostgreSQL
 ---
 
-A web app for visualizing personalized Spotify data. View your top artists, top tracks, recently played tracks, and detailed audio information about each track. Create and save new playlists of recommended tracks based on your existing playlists and more.
+A comprehensive Human Resource Management System (HRMS) designed to streamline and automate organizational HR processes. The platform includes modules for employee management, attendance tracking, leave management, payroll support, document management, and role-based access control.
